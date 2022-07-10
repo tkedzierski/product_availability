@@ -5,7 +5,7 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 def job_one_hour():
     filename = 'products_check.py'
     while True:
-        p = subprocess.Popen('python '+filename, shell=True).wait(160)
+        p = subprocess.Popen('python '+filename, shell=True).wait()
 
         if p != 0:
             continue
