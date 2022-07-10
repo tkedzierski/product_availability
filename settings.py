@@ -4,6 +4,7 @@ url = ""  # "https://shopklima.pl/pl/148-klimatyzatory-scienne?order=product.pos
 EmailLogin = ""  # example@gmail.com
 EmailPassword = ""  # gmail app password
 EmailReportRecipient = ""  # example1@gmail.com
+EmailReportTitle = ""  # "Raport Example.com: "
 
 MongoDB_Pass = ""
 MongoClusterURL = ""  # "mongodb+srv://user:<password>@<<cluster>>.mongodb.net/"
