@@ -4,10 +4,11 @@ def prepare_email(
         price_change_product_dict,
         availability_change_product_dict
         ):
+    import settings
     new_line = '\n'
     new_line_x2 = '\n\n'
     email_main_report = ""
-    email_title = "Raport ShopKlima.pl: "
+    email_title = settings.EmailReportTitle
     if len(new_product_dict) > 0:
         email_main_report = str(email_main_report) + str("Nowe produkty: ") + str(new_line_x2)
         email_title = str(email_title) + "Nowe - "
