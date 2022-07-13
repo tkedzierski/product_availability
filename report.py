@@ -9,9 +9,10 @@ def prepare_email(
     new_line_x2 = '\n\n'
     email_main_report = ""
     email_title = settings.EmailReportTitle
+    email_title_status = []
     if len(new_product_dict) > 0:
         email_main_report = str(email_main_report) + str("Nowe produkty: ") + str(new_line_x2)
-        email_title = str(email_title) + "Nowe - "
+        email_title_status.append("Nowe")
         for key, value in new_product_dict.items():
             product_name = value["product_name"]
             product_url = value["product_url"]
@@ -29,7 +30,7 @@ def prepare_email(
 
     if len(deleted_product_dict) > 0:
         email_main_report = str(email_main_report) + str("Usunięte produkty: ") + str(new_line_x2)
-        email_title = str(email_title) + "Usunięte - "
+        email_title_status.append("Usunięte")
         for key, value in deleted_product_dict.items():
             product_name = value["product_name"]
             product_url = value["product_url"]
@@ -39,7 +40,7 @@ def prepare_email(
 
     if len(price_change_product_dict) > 0:
         email_main_report = str(email_main_report) + str("Zmiana ceny: ") + str(new_line_x2)
-        email_title = str(email_title) + "Cena - "
+        email_title_status.append("Cena")
         for key, value in price_change_product_dict.items():
             product_name = value["product_name"]
             product_url = value["product_url"]
@@ -59,7 +60,7 @@ def prepare_email(
 
     if len(availability_change_product_dict) > 0:
         email_main_report = str(email_main_report) + str("Zmiana dostępności: ") + str(new_line_x2)
-        email_title = str(email_title) + "Dostępność"
+        email_title_status.append("Dostępność")
         for key, value in availability_change_product_dict.items():
             product_name = value["product_name"]
             product_url = value["product_url"]
@@ -74,7 +75,7 @@ def prepare_email(
                 "Strona: " + str(product_url) + str(new_line) + \
                 "Aktualna cena: " + str(product_price) + str(new_line) + \
                 "Aktualna dostępność: " + str(product_availability) + str(new_line_x2)
-
+    email_title = email_title + "/".join(email_title_status)
     print(email_title)
     print(email_main_report)
     return email_title, email_main_report
